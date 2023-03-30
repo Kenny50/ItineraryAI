@@ -1,29 +1,9 @@
 version: "3"
 services:
-  mysqldb:
-    image: mysql:8
-    container_name: tourdb
-    ports:
-      - ${DB_PORT}:3306
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-      - MYSQL_ROOT_HOST=%
-      - MYSQL_ROOT_HOST=${DB_HOST}
-      - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_USER=${DB_USERNAME}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - ./mysql:/var/lib/mysql
-
-  # CREATE USER 'main_manager'@'localhost' IDENTIFIED BY 'Passw0rd';
-  # GRANT ALL PRIVILEGES ON * . * TO 'main_manager'@'localhost';FLUSH PRIVILEGES;
-
   express:
     build: .
     image: tourapi:1
     container_name: tourapi
-    depends_on:
-      - mysqldb
     ports:
       - 3020:3020
     env_file:

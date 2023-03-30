@@ -7,11 +7,8 @@ const path = require('path');
 
 const app = express();
 
+app.use(express.static(__dirname + '/build'));
 
-
-
-app.use(express.static(path.join(__dirname, 'build')));
-app.listen(9000);
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,9 +22,9 @@ const server = app.listen(app.get('port'), () => {
     console.log('Listening on port ' + server.address().port);
 })
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
   
 
 // }).catch(err => {
