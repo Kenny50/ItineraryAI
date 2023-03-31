@@ -2,8 +2,11 @@ version: "3"
 services:
   nginx:
     build: .
-    image: nginx
+    image: nginx:0
     ports:
-      - "80:80"
+      - "82:80"
     volumes:
-      - ~/itinerary/build:/build
+      - ${EXTERNAL_REACT_PATH}:/build
+      - ./conf.d:/etc/nginx/conf.d
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
