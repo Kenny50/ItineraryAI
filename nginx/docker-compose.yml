@@ -4,7 +4,7 @@ services:
     build: .
     image: nginx:0
     ports:
-      - "82:80"
+      - "80:80"
     volumes:
       - ${EXTERNAL_REACT_PATH}:/build
       - ./conf.d:/etc/nginx/conf.d
