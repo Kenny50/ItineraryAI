@@ -1,16 +1,15 @@
 const Router = require('express');
-const countryRoute = require('./countryRoute');
-const tagRoute = require('./tagRoute');
-const aiRoute = require('./aiRoute');
-const itineraryRoute = require('./itineraryRoute');
-const mailRoute = require('./mailRoute');
+const pdfRoute= require('./pdf/pdfRoute');
+const companyRoute = require('./company/companyRoute');
+const industryRoute = require('./insudtry/industryRoute');
+const rateRoute = require('./rate/rateRoute');
+const firmsRoute = require('./securitiesFirms/firmsRoute');
 
 const router = Router();
-
-countryRoute(router);
-tagRoute(router);
-itineraryRoute(router);
-aiRoute(router);
-mailRoute(router);
+pdfRoute(router);
+companyRoute(router);
+industryRoute(router);
+rateRoute(router);
+firmsRoute(router);
 
 module.exports = router;
