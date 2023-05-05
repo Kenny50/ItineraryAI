@@ -50,18 +50,13 @@ function pdfRoute(router) {
     //get endpoint
     //save endpoint with ${PdfFormat} as a table
     router.post('/pdf', upload.single('pdfFile'), (req, res, err) => {
-        const fileName = req.file.originalname; // get the file name
-        res.send(fileName);
+
+        res.send({status: "waiting for s3 function"});
     })
 
     router.post('/pdf-bulk-upload', upload.array('pdfFile'), (req, res) => {
-        const files = req.files;
-        if (!files || files.length === 0) {
-            res.status(400).send('No files uploaded.');
-        } else {
-            res.send(`${files.length} files uploaded.`);
-        }
 
+        res.send({status: "waiting for s3 function"});
     })
 
     //find file by name

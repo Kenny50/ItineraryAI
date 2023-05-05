@@ -11,7 +11,11 @@ const StockAnalysisReport = sequelize.define('StockAnalysisReport',{
         autoIncrement: true,
         primaryKey:true
     },
-    file: {
+    fileName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    path: {
         type: DataTypes.STRING,
         allowNull: false
     },
