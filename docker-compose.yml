@@ -2,8 +2,8 @@ version: "3"
 services:
   express:
     build: .
-    image: tourapi:1
-    container_name: tourapi
+    image: diamond:1
+    container_name: diamondapi
     ports:
       - 3020:3020
     env_file:
