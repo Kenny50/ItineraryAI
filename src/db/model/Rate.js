@@ -1,11 +1,15 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../initDB');
 
-const Tag = sequelize.define('Tag',{
+const Rate = sequelize.define('Rate',{
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey:true
+    },
+    code: {
+        type: DataTypes.STRING,
+        allowNull:false
     },
     name: {
         type: DataTypes.STRING,
@@ -13,4 +17,6 @@ const Tag = sequelize.define('Tag',{
     }
 })      
 
-module.exports = Tag;
+// Rate.prototype.getIdByCode(code) = code?(await this.findOne({where: {code: code}})).id:code;
+
+module.exports = Rate;

@@ -1,28 +1,20 @@
-const Country = require("./Country")
-const City = require("./City")
-const Itinerary = require("./Itinerary")
-const Tag = require("./Tag")
-const User = require("./User")
-const ItineraryTag = require('./intermediate/ItineraryTag')
-const Mail = require('./Mail')
+const Rate = require("./Rate");
+const StockAnalysisReport = require("./StockAnalysisReport");
+const SecuritiesFirms = require('./SecuritiesFirms');
+const Industry = require('./Industry');
+const Company = require('./Company');
 
-Tag.belongsToMany(Itinerary, { through: ItineraryTag });
-Itinerary.belongsToMany(Tag, { through: ItineraryTag });
+// Rate.hasMany(StockAnalysisReport, { foreignKey: 'rate' });
 
-Itinerary.belongsTo(Country);
-Itinerary.hasMany(City);
-Itinerary.belongsTo(User);
-
-Country.hasMany(City);
-
-City.belongsTo(Country);
-City.belongsTo(Itinerary);
+StockAnalysisReport.belongsTo(Rate, { foreignKey: 'rate' });
+StockAnalysisReport.belongsTo(SecuritiesFirms, {foreignKey: 'securitiesFirms'});
+StockAnalysisReport.belongsTo(Industry, { foreignKey: 'industry'});
+StockAnalysisReport.belongsTo(Company, { foreignKey: 'company'});
 
 module.exports = {
-    Country,
-    City,
-    Itinerary,
-    Tag,
-    User,
-    Mail
+    Rate,
+    StockAnalysisReport,
+    SecuritiesFirms,
+    Industry,
+    Company
 }
